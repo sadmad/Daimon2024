@@ -1,15 +1,14 @@
-
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Slide from "./slides/Slide";
 import TopBar from "./topbar/TopBar";
 import Blocks from "./fist-containers/Twoblock";
 import SecBlocks from "./3block/secBlock";
-import "./Home.css";
 import Login from "./login/Login";
-import { useState } from "react";
-import { useEffect } from "react";
+import DaimonPage from "./DaimonPage";
+import "./Home.css";
 
 const Home = () => {
-
   //to change the stateof the login form
   const [showLogin, setDisplayForm] = useState(false);
 
@@ -19,7 +18,7 @@ const Home = () => {
   };
 
   //the login form with popup after 6 seconds
- 
+
   useEffect(() => {
     setTimeout(() => {
       setDisplayForm(true);
@@ -27,22 +26,25 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <Router>
       <main className="p-3 mb-2 bg-dark text-white w-100 p-3 mw-100">
         <TopBar formDisplay={loginFormIlustrator} />
-        <Slide />
-        <Blocks />
-        <SecBlocks />
-        {/* formDisplay pass the loginFormIlustrator function to the cilde
-        set the pupup */}
-
+        <Switch>
+          <Route path="/" exact>
+            <Slide />
+            <Blocks />
+            <SecBlocks />
+          </Route>
+          <Route path="/DaimonPage" exact>
+            <DaimonPage />
+          </Route>
+        </Switch>
         {showLogin ? <Login formDisplay={loginFormIlustrator}></Login> : ""}
       </main>
-      
       <footer className="pt-3 mt-4 text-muted border-top">
         &copy; TU Cluasthal 2022
       </footer>
-    </>
+    </Router>
   );
 };
 
