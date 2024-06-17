@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
+
+  <script src="https://unpkg.com/react-dom/umd/react-dom.production.min.js" crossorigin></script>
+
+  <script src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"
+    integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg=="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function (event) {
+      // Your code to run since DOM is loaded and ready
+      VanillaTilt.init(document.querySelectorAll(".card"), {
+        max: 25,
+        speed: 400,
+        glare: false,
+        "max-glare": 0.8,
+      });
+      VanillaTilt.init(document.querySelectorAll(".card"));
+    });
+  </script>
+  <script type="text/javascript">
+    var myLink = document.querySelector('a[href="#"]');
+    myLink.addEventListener("click", function (e) {
+      e.preventDefault();
+    });
+  </script>
+  <script>
+    var Alert = ReactBootstrap.Alert;
+  </script>
+  <title>React Daimon App</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
