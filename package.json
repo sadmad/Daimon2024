@@ -19,11 +19,13 @@
     "bootstrap": "^5.3.3",
     "cdbreact": "^1.5.19",
     "chart.js": "^4.4.3",
+    "framer-motion": "^11.2.10",
     "mdb-react-ui-kit": "^8.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.10.3",
     "react-loading": "^2.0.3",
     "react-router-dom": "^6.23.1"
   },

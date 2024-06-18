@@ -75,7 +75,7 @@ const Login = (props) => {
                     type={"spinningBubbles"}
                     color={"gray"}
                   />
-                  <br/>
+                  <br />
                   <div className="block-text-load">
                     <span className="load-text">Login</span>
                   </div>
@@ -109,12 +109,15 @@ const Login = (props) => {
                   </div>
                   <div className="d-flex align-items-center">
                     <input type="checkbox" name="remember" id="remember" />
-                    <label className="text-muted ms-2" for="remember">
+                    <label className="text-muted ms-2" htmlFor="remember">
                       Remember me
                     </label>
                   </div>
                   <div className="d-flex justify-content-center">
-                    <div className="btn btn-primary mt-3" onClick={submitHandler}>
+                    <div
+                      className="btn btn-primary mt-3"
+                      onClick={submitHandler}
+                    >
                       Sign In
                     </div>
                   </div>
