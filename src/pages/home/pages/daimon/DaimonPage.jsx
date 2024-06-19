@@ -7,7 +7,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./DaimonPage.css";
 import daimon2 from "../../../../images/daimon-2.png";
 import daimonNew from "../../../../images/daimon-new-logo.png";
+import useScrollToTopOnReload from "../../../../components/useSccrollToTopOnReload"
 const DaimonPage = () => {
+  useScrollToTopOnReload();
   const options = {
     triggerOnce: true,
     threshold: 0.1,
@@ -16,10 +18,8 @@ const DaimonPage = () => {
   const { ref: ref1, inView: inView1 } = useInView(options);
   const { ref: ref2, inView: inView2 } = useInView(options);
   const { ref: ref3, inView: inView3 } = useInView(options);
-  useEffect(() => {
-    // Scroll to the top when the component mounts
-    window.scrollTo(0, 0);
-  }, []);
+
+  
   const containerVariants = {
     hidden: { opacity: 0, scale: 0, rotate: 0 },
     visible: {
@@ -53,7 +53,7 @@ const DaimonPage = () => {
     },
   };
 
-  const textVariants = {
+  const titleVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -64,6 +64,18 @@ const DaimonPage = () => {
       },
     },
   };
+
+  const textVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 3,
+        delay: 8,
+        ease: "easeOut",
+      },
+    },
+  }
 
   return (
     <Container>
@@ -99,13 +111,17 @@ const DaimonPage = () => {
         </motion.div>
         <motion.div
           className="project-name"
-          variants={textVariants}
+          variants={titleVariants}
           initial="hidden"
           animate="visible"
         >
           <h2>Decision Aid for Marine Munitions: Practical Application</h2>
         </motion.div>
-        <motion.div className="project-explaination">
+        <motion.div className="project-explaination"
+          variants={textVariants}
+          initial={"hidden"}
+          animate="visible"
+        >
           <p>
             The Baltic Sea harbors a grim legacy of approximately 50,000 tons of
             chemical warfare agents and at least 200,000 tons of conventional

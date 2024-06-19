@@ -1,21 +1,51 @@
-.o2 {
-    position: absolute;
-    top: 0;
-    left: 56%;
-    transform: translate(-80%, -50%);
-}
-
-
-.daimon-image {
-    position: absolute;
-    top: 6%;
-    left: 68%;
-    transform: translateX(-50%);
-}
-
-.project-name {
-    position: absolute;
-    top: 25%;
-    left: 63%;
-    transform: translateX(-50%);
-}
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  .o2 {
+    width: 10vw; /* Relative width */
+    height: auto;
+  }
+  
+  .daimon-image {
+    width: 50vw; /* Relative width */
+    height: auto;
+    margin-top: 20px;
+  }
+  
+  .project-name {
+    text-align: center;
+    margin-top: 20px;
+    width: 90%; /* Relative width */
+  }
+  
+  .project-explanation {
+    text-align: justify;
+    font-size: 1.2em;
+    margin-top: 30px;
+    width: 80%; /* Relative width */
+  }
+  
+  @media (max-width: 768px) {
+    .o2 {
+      width: 20vw; /* Adjusted width for smaller screens */
+    }
+    .daimon-image {
+      width: 70vw; /* Adjusted width for smaller screens */
+    }
+    .project-name {
+      font-size: 1.5em; /* Adjusted font size for smaller screens */
+      width: 80%; /* Adjusted width for smaller screens */
+    }
+    .project-explanation {
+      font-size: 1em; /* Adjusted font size for smaller screens */
+      width: 90%; /* Adjusted width for smaller screens */
+    }
+  }
+  
