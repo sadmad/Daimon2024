@@ -5,8 +5,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DaimonPage.css";
-import daimon2 from "../../images/daimon-2.png";
-import daimonNew from "../../images/daimon-new-logo.png";
+import daimon2 from "../../../../images/daimon-2.png";
+import daimonNew from "../../../../images/daimon-new-logo.png";
 const DaimonPage = () => {
   const options = {
     triggerOnce: true,

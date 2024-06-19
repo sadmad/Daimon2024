@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import "./secBlock.css";
-import interreg from "../../../images/interreg_baltic_sea_region.jpg";
-import amucad from "../../../images/AmuCad_logo_crown_blue_500.png";
-import daimon from "../../../images/daimon2.png";
+import interreg from "../../../../images/interreg_baltic_sea_region.jpg";
+import amucad from "../../../../images/AmuCad_logo_crown_blue_500.png";
+import daimon from "../../../../images/daimon2.png";
 
 const SecBlock = () => {
   const img = [interreg, amucad, daimon];

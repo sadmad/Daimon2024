@@ -1,5 +1,5 @@
 import "./Login.css";
-import Logo from "../../../images/TU-Logo_EN.jpg";
+import Logo from "../../../../images/TU-Logo_EN.jpg";
 import { useState } from "react";
 import ReactLaoding from "react-loading";
 

@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Slide from "./slides/Slide";
-import TopBar from "./topbar/TopBar";
-import Blocks from "./fist-containers/Twoblock";
-import SecBlocks from "./3block/secBlock";
-import DaimonPage from "./DaimonPage";
+import Slide from "./components/slides/Slide";
+import TopBar from "./components/topbar/TopBar";
+import Blocks from "./components/fist-containers/Twoblock";
+import SecBlocks from "./components/3block/secBlock";
+import DaimonPage from "./pages/daimon/DaimonPage";
 import "./Home.css";
-import Login from "./login/Login";
+import Login from "./components/login/Login";
 import { useState, useEffect } from "react";
 
 const Home = () => {
