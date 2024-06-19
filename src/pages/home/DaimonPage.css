@@ -1,0 +1,21 @@
+.o2 {
+    position: absolute;
+    top: 0;
+    left: 56%;
+    transform: translate(-80%, -50%);
+}
+
+
+.daimon-image {
+    position: absolute;
+    top: 6%;
+    left: 68%;
+    transform: translateX(-50%);
+}
+
+.project-name {
+    position: absolute;
+    top: 25%;
+    left: 63%;
+    transform: translateX(-50%);
+}
