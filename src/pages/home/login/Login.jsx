@@ -1,5 +1,5 @@
 import "./Login.css";
-import Logo from "../../../images/Logo-white.png";
+import Logo from "../../../images/TU-Logo_EN.jpg";
 import { useState } from "react";
 import ReactLaoding from "react-loading";
 
@@ -61,10 +61,7 @@ const Login = (props) => {
               <div className="card-head bg-white">
                 <div className="d-flex align-items-center justify-content-center my-2">
                   <div className="login-logo">
-                    <img
-                      src="https://www.presse.tu-clausthal.de/fileadmin/_processed_/c/3/csm_Logo_EN_gr%C3%BCn_404735dda6.jpg"
-                      alt=""
-                    />
+                    <img src={Logo} alt="TU-Logoz" />
                   </div>
                 </div>
               </div>

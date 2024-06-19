@@ -38,12 +38,12 @@ const Home = () => {
                   <Slide />
                   <Blocks />
                   <SecBlocks />
+                  {showLogin && <Login formDisplay={loginFormIlustrator} />}
                 </>
               }
             />
             <Route path="/DaimonPage" element={<DaimonPage />} />
           </Routes>
-          {showLogin && <Login formDisplay={loginFormIlustrator} />}
         </main>
         <footer className="pt-3 mt-4 text-muted border-top">
           &copy; TU Cluasthal 2022
