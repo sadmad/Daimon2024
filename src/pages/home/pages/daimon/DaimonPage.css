@@ -1,51 +1,54 @@
-.container-fluid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    padding: 20px;
-  }
-  
+/* DaimonPage.css */
+.full-height-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.first-animated-row {
+  overflow: hidden;
+  display: flex;
+}
+
+.o2 {
+  width: 10vw; /* Relative width */
+  height: auto;
+}
+
+.daimon-image {
+  width: 50vw; /* Relative width */
+  height: auto;
+}
+
+.project-name {
+  text-align: center;
+  margin-top: 10px;
+  width: 90%; /* Relative width */
+}
+
+.project-explanation {
+  text-align: justify;
+  font-size: 1.2em;
+  margin-top: 30px;
+  width: 80%; /* Relative width */
+}
+
+@media (max-width: 768px) {
   .o2 {
-    width: 10vw; /* Relative width */
-    height: auto;
+    width: fit-content; /* Adjusted width for smaller screens */
   }
-  
   .daimon-image {
-    width: 50vw; /* Relative width */
-    height: auto;
-    margin-top: 20px;
+    width: fit-content; /* Adjusted width for smaller screens */
   }
-  
   .project-name {
-    text-align: center;
-    margin-top: 20px;
-    width: 90%; /* Relative width */
+    font-size: 1.5em; /* Adjusted font size for smaller screens */
+    width: 80%; /* Adjusted width for smaller screens */
   }
-  
   .project-explanation {
     text-align: justify;
-    font-size: 1.2em;
-    margin-top: 30px;
-    width: 80%; /* Relative width */
+    font-size: 1em; /* Adjusted font size for smaller screens */
+    width: 90%; /* Adjusted width for smaller screens */
   }
-  
-  @media (max-width: 768px) {
-    .o2 {
-      width: 20vw; /* Adjusted width for smaller screens */
-    }
-    .daimon-image {
-      width: 70vw; /* Adjusted width for smaller screens */
-    }
-    .project-name {
-      font-size: 1.5em; /* Adjusted font size for smaller screens */
-      width: 80%; /* Adjusted width for smaller screens */
-    }
-    .project-explanation {
-      font-size: 1em; /* Adjusted font size for smaller screens */
-      width: 90%; /* Adjusted width for smaller screens */
-    }
-  }
-  
+}

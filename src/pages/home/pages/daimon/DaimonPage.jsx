@@ -1,13 +1,12 @@
-// src/components/DaimonPage.jsx
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { Container, Row, Col } from "react-bootstrap";
 import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DaimonPage.css";
-import daimon2 from "../../../../images/daimon-2.png";
+import ML from "../../../../images/machine-learning-daimon-page.svg";
 import daimonNew from "../../../../images/daimon-new-logo.png";
-import useScrollToTopOnReload from "../../../../components/useSccrollToTopOnReload"
+import useScrollToTopOnReload from "../../../../components/useSccrollToTopOnReload";
 const DaimonPage = () => {
   useScrollToTopOnReload();
   const options = {
@@ -19,13 +18,11 @@ const DaimonPage = () => {
   const { ref: ref2, inView: inView2 } = useInView(options);
   const { ref: ref3, inView: inView3 } = useInView(options);
 
-  
   const containerVariants = {
     hidden: { opacity: 0, scale: 0, rotate: 0 },
     visible: {
       opacity: 1,
       scale: 1,
-      rotate: 360,
       transition: {
         duration: 2,
         ease: "easeOut",
@@ -75,40 +72,35 @@ const DaimonPage = () => {
         ease: "easeOut",
       },
     },
-  }
+  };
 
   return (
     <Container>
-      <Row
-        className="my-5"
-        style={{ position: "relative", height: "100vh", overflow: "hidden" }}
-      >
+      <Row className="first-animated-row">
         {/* Here load the daimon page logo  */}
-        <motion.div
-          className="o2"
-          variants={containerVariants}
-          initial="hidden"
-          animate={["visible", "moveToTop"]}
-        >
-          <img
-            src={daimon2}
-            alt="Daimon part of Logo"
-            style={{ width: "120px", height: "120px" }}
-          />
-        </motion.div>
+        <Col>
+          <motion.div
+            className="o2"
+            variants={containerVariants}
+            initial="hidden"
+            animate={["visible", "moveToTop"]}
+          >
+            <img src={ML} alt="Daimon part of Logo" className="img-fluid" />
+          </motion.div>
+        </Col>
         {/* The rest of the logo load from here */}
-        <motion.div
-          className="daimon-image"
-          variants={fadeInVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <img
-            src={daimonNew}
-            alt="Additional Image"
-            style={{ width: "780px", height: "200px" }}
-          />
-        </motion.div>
+        <Col xs={10}>
+          <motion.div
+            className="daimon-block"
+            variants={fadeInVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <img className="img-fluid" src={daimonNew} alt="Daimon graphic" />
+          </motion.div>
+        </Col>
+      </Row>
+      <Row>
         <motion.div
           className="project-name"
           variants={titleVariants}
@@ -117,7 +109,8 @@ const DaimonPage = () => {
         >
           <h2>Decision Aid for Marine Munitions: Practical Application</h2>
         </motion.div>
-        <motion.div className="project-explaination"
+        <motion.div
+          className="project-explaination"
           variants={textVariants}
           initial={"hidden"}
           animate="visible"
