@@ -1,7 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { Container, Row, Col } from "react-bootstrap";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DaimonPage.css";
 import ML from "../../../../images/machine-learning-daimon-page.svg";
@@ -17,35 +17,24 @@ const DaimonPage = () => {
   const { ref: ref1, inView: inView1 } = useInView(options);
   const { ref: ref2, inView: inView2 } = useInView(options);
   const { ref: ref3, inView: inView3 } = useInView(options);
+  const [isAbsolute, setIsAbsolute] = useState(true);
 
   const containerVariants = {
-    hidden: { opacity: 0, scale: 0, rotate: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 2,
-        ease: "easeOut",
-      },
-    },
-    moveToTop: {
-      top: "10%",
-      transition: {
-        duration: 2,
-        delay: 2,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const fadeInVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        duration: 3,
-        delay: 4,
-        ease: "easeOut",
+        duration: 6,
+        ease: [0.25, 0.1, 0.25, 1],
+      },
+    },
+    moveToTop: {
+      top: "30%",
+      transition: {
+        duration: 4,
+        delay: 6,
+        ease: "backIn",
+        onComplete: () => setIsAbsolute(false),
       },
     },
   };
@@ -75,63 +64,90 @@ const DaimonPage = () => {
   };
 
   return (
-    <Container>
-      <Row className="first-animated-row">
-        {/* Here load the daimon page logo  */}
-        <Col>
-          <motion.div
-            className="o2"
-            variants={containerVariants}
-            initial="hidden"
-            animate={["visible", "moveToTop"]}
+    <Container fluid>
+      <div className="vh-100 d-flex flex-column">
+        <Row className="first-animated-row align-items-center justify-content-center flex-grow-1">
+          {/* Load the daimon page logo */}
+          <Col
+            xs={12}
+            md={2}
+            className="left-first-col d-flex align-items-center justify-content-end"
           >
-            <img src={ML} alt="Daimon part of Logo" className="img-fluid" />
-          </motion.div>
-        </Col>
-        {/* The rest of the logo load from here */}
-        <Col xs={10}>
+            <motion.div
+              className={
+                isAbsolute
+                  ? "position-absolute start-50 translate-middle"
+                  : "ml"
+              }
+              variants={containerVariants}
+              initial="hidden"
+              animate={["visible", "moveToTop"]}
+            >
+              <img
+                src={ML}
+                alt="TU Clausthal-Machine learning"
+                className="img-fluid"
+              />
+            </motion.div>
+          </Col>
+          {/* The rest of the logo load from here */}
+          <Col
+            xs={12}
+            md={6}
+            className="right-first-col d-flex align-items-center justify-content-start"
+          >
+            <motion.div
+              className={
+                isAbsolute
+                  ? "position-absolute start-50 translate-middle"
+                  : "daimon-block"
+              }
+              variants={containerVariants}
+              initial="hidden"
+              animate={["visible", "moveToTop"]}
+            >
+              <img
+                className="img-fluid daimon-image"
+                src={daimonNew}
+                alt="Daimon graphic"
+              />
+            </motion.div>
+          </Col>
+        </Row>
+        <Row className="flex-grow-1 align-items-center justify-content-center">
           <motion.div
-            className="daimon-block"
-            variants={fadeInVariants}
+            className="project-name"
+            variants={titleVariants}
             initial="hidden"
             animate="visible"
           >
-            <img className="img-fluid" src={daimonNew} alt="Daimon graphic" />
+            <h2>Decision Aid for Marine Munitions: Practical Application</h2>
           </motion.div>
-        </Col>
-      </Row>
-      <Row>
-        <motion.div
-          className="project-name"
-          variants={titleVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <h2>Decision Aid for Marine Munitions: Practical Application</h2>
-        </motion.div>
-        <motion.div
-          className="project-explaination"
-          variants={textVariants}
-          initial={"hidden"}
-          animate="visible"
-        >
-          <p>
-            The Baltic Sea harbors a grim legacy of approximately 50,000 tons of
-            chemical warfare agents and at least 200,000 tons of conventional
-            munitions from World Wars I and II. Additionally, around 45,000 tons
-            of CWAs and 200,000 tons of conventional munitions were dumped off
-            the coast of Norway in Skagerrak, with another 20,000 tons of CWAs
-            near Måseskär, Sweden. These underwater munitions constantly release
-            contaminants due to shell corrosion and human disturbances. The
-            DAIMON project (2016-2019), with a budget of 4.7 million EUR and
-            part-financed by the EU INTERREG Baltic Sea Region Programme,
-            addressed the contentious issue of how to manage these underwater
-            warfare objects. They developed decision-aid tools to assist Baltic
-            Sea Region governments and companies in making informed,
-            case-specific decisions.
-          </p>
-        </motion.div>
-      </Row>
+          <motion.div
+            className="project-explanation"
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <p>
+              The Baltic Sea harbors a grim legacy of approximately 50,000 tons
+              of chemical warfare agents and at least 200,000 tons of
+              conventional munitions from World Wars I and II. Additionally,
+              around 45,000 tons of CWAs and 200,000 tons of conventional
+              munitions were dumped off the coast of Norway in Skagerrak, with
+              another 20,000 tons of CWAs near Måseskär, Sweden. These
+              underwater munitions constantly release contaminants due to shell
+              corrosion and human disturbances. The DAIMON project (2016-2019),
+              with a budget of 4.7 million EUR and part-financed by the EU
+              INTERREG Baltic Sea Region Programme, addressed the contentious
+              issue of how to manage these underwater warfare objects. They
+              developed decision-aid tools to assist Baltic Sea Region
+              governments and companies in making informed, case-specific
+              decisions.
+            </p>
+          </motion.div>
+        </Row>
+      </div>
 
       {/* from here we have the content of the page */}
       <Row className="my-5">

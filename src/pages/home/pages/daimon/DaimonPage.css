@@ -1,19 +1,32 @@
 /* DaimonPage.css */
-.full-height-col {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+/* First row */
+/* Starting logo that apears in middle of the screen */
+.position-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20vw;
 }
+/* finished */
 
 .first-animated-row {
   overflow: hidden;
-  display: flex;
+  justify-content: center; /* Center the row contents */
+  height: 100vm;
 }
 
-.o2 {
-  width: 10vw; /* Relative width */
+.right-first-col {
+  padding: 0
+}
+
+.left-first-col {
+  padding: 0
+}
+
+.ml {
+  width: 20vw; /* Relative width */
   height: auto;
 }
 
@@ -22,6 +35,7 @@
   height: auto;
 }
 
+/* Second row */
 .project-name {
   text-align: center;
   margin-top: 10px;
@@ -50,5 +64,9 @@
     text-align: justify;
     font-size: 1em; /* Adjusted font size for smaller screens */
     width: 90%; /* Adjusted width for smaller screens */
+  }
+  .left-first-col{
+    justify-content: center !important;
+    padding-right: 0;
   }
 }
