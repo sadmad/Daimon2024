@@ -1,42 +1,52 @@
 /* DaimonPage.css */
-
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
 /* Full viewport height */
 .vh-100 {
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
-.position-animation {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+#position-animation {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
 
+
+}
 .position-animation-move {
   top: 10% !important;
-  left: 10% !important;
+ /*  left: 0 !important; */
   transform: translate(0, 0) !important;
 }
 
-.ml {
-  width: 20vw; /* Relative width */
+
+.first-animated-row{
+  display: flex;
+  align-items: center; /* Vertically centers the content */
+  justify-content: center; /* Horizontally centers the content */
+}
+.ml,
+.daimon-image {
+  max-width: 100%;
   height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-.daimon-image {
-  width: 50vw; /* Relative width */
-  height: auto;
-}
 
 .first-animated-row {
   overflow: hidden;
   justify-content: center; /* Center the row contents */
 }
 
-.right-first-col,
-.left-first-col {
-  padding: 0;
-}
 
 .project-name {
   text-align: center;
@@ -52,6 +62,15 @@
 }
 
 @media (max-width: 768px) {
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  .Container {
+    max-width: fit-content;
+    overflow-x: clip;
+  }
   .daimon-image,
   .project-name,
   .project-explanation {
