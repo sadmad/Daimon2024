@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { Container, Row, Col } from "react-bootstrap";
-import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DaimonPage.css";
 import ML from "../../../../images/machine-learning-daimon-page.svg";
 import daimonNew from "../../../../images/daimon-new-logo.png";
 import useScrollToTopOnReload from "../../../../components/useSccrollToTopOnReload";
+import dss from "../../../../images/dss.png";
 
 const DaimonPage = () => {
   useScrollToTopOnReload();
@@ -32,47 +32,58 @@ const DaimonPage = () => {
         transition: { duration: 4 },
       });
       await controls.start({
-        top: "14%",
-        transform: "translate(0, 0)",
+        top: "0%",
+        transform: "translate(0, -32vh)",
         transition: { duration: 3, ease: "easeInOut" },
       });
       await titleControl.start({
         opacity: 1,
-        top: "35%",
-        transform: "translate(0, 0)",
+        top: "0%",
+        transform: "translate(0, -4vh)",
         transition: { duration: 3, ease: "easeInOut" },
       });
       await parControl.start({
         opacity: 1,
         top: "50%",
-        transform: "translate(0, -20%)",
+        transform: "translate(0, 6vh)",
         transition: { duration: 3, ease: "easeInOut" },
       });
       setShowContent(true);
     };
-
     sequence();
-  }, [controls]);
-
+  }, [controls, titleControl, parControl]);
+  const cardVariants = {
+    offscreen: {
+      y: 300,
+    },
+    onscreen: {
+      y: 50,
+      rotate: -10,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  };
   return (
     <Container fluid>
-      <Row className="vh-100">
-        <Col xs={10} className="text-center">
+      <Row className="vh-80">
+        <Col xs={10} className="loading-log-center">
           <motion.div
             id="position-animation"
-            initial={{ opacity: 0, top: "50%" }}
+            initial={{ opacity: 0, top: "0%" }}
             animate={controls}
-            style={{}}
           >
             <Row className="first-animated-row align-items-center justify-content-center">
-              <Col xs={5} md={1}>
+              <Col xs={5} md={2}>
                 <img
                   src={ML}
-                  alt="TU Clausthal-Machine learning"
+                  alt="TU Clausthal+Machine learning"
                   className="img-fluid ml"
                 />
               </Col>
-              <Col xs={5} md={4}>
+              <Col xs={5} md={5}>
                 <img
                   className="img-fluid daimon-image"
                   src={daimonNew}
@@ -83,7 +94,7 @@ const DaimonPage = () => {
           </motion.div>
           <motion.div
             className="project-name"
-            initial={{ opacity: 0, top: "50%" }}
+            initial={{ opacity: 0, top: "0%" }}
             animate={titleControl}
             style={{ position: "absolute", top: "50%" }}
           >
@@ -100,7 +111,7 @@ const DaimonPage = () => {
             className="project-explanation"
             initial={{ opacity: 0 }}
             animate={parControl}
-            style={{ position: "absolute"}}
+            style={{ position: "absolute" }}
           >
             <Col>
               <Row>
@@ -127,18 +138,34 @@ const DaimonPage = () => {
       </Row>
 
       {showContent && (
-        <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 4 }}
+        >
           {/* Additional content rows */}
-          <Row className="my-5">
-            <Col ref={ref1}>
+          <Row className="my-0 justify-content-md-center">
+            <Col md={7} ref={ref1}>
+              <Row>
+                <Col>
+                  <motion.div
+                    initial={{ opacity: 0, x: -100 }}
+                    animate={
+                      inView1 ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }
+                    }
+                    transition={{ duration: 0.5 }}
+                  >
+                    <h3>Decision Support System (DSS) for marine munitions </h3>
+                  </motion.div>
+                </Col>
+              </Row>
               <motion.div
-                initial={{ opacity: 0, x: -100 }}
+                initial={{ opacity: 0, y: 100 }}
                 animate={
-                  inView1 ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }
+                  inView1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }
                 }
-                transition={{ duration: 0.5 }}
+                transition={{ delay:1, duration: 0.5 }}
               >
-                <h3>Decision Support System (DSS) for marine munitions </h3>
                 <p>
                   The DAIMON project, running from 2016 to 2019 with a budget of
                   4.7 million EUR and part-financed by the EU INTERREG Baltic
@@ -158,20 +185,34 @@ const DaimonPage = () => {
                   ensuring widespread practical application and enhancing the
                   safety and environmental health of the Baltic Sea region.
                 </p>
-                <img src="https://via.placeholder.com/400" alt="Example" />
               </motion.div>
             </Col>
+            <Col md={2}>
+              <img src={dss} alt="Example" />
+            </Col>
           </Row>
-          <Row className="my-5">
-            <Col ref={ref2}>
+          <Row className="my-1 justify-content-md-center">
+            <Col md={7} ref={ref2}>
+              <Row>
+                <Col>
+                  <motion.div
+                    initial={{ opacity: 0, x: 100 }}
+                    animate={
+                      inView2 ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }
+                    }
+                    transition={{ duration: 0.5 }}
+                  >
+                    <h3>Baltic Sea Munitions Database</h3>
+                  </motion.div>
+                </Col>
+              </Row>
               <motion.div
-                initial={{ opacity: 0, x: 100 }}
+                initial={{ opacity: 0, y: 100 }}
                 animate={
-                  inView2 ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }
+                  inView2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }
                 }
-                transition={{ duration: 0.5 }}
+                transition={{ delay:1, duration: 0.5 }}
               >
-                <h3>Baltic Sea Munitions Database</h3>
                 <p>
                   The Clausthal University of Technology, in collaboration with
                   Dr. Koehler GmbH, has developed a specialist software designed
@@ -188,20 +229,34 @@ const DaimonPage = () => {
                   inquiries, please contact Prof. Dr. Sven Hartmann at the
                   Clausthal University of Technology.
                 </p>
-                <img src="https://via.placeholder.com/400" alt="Example" />
               </motion.div>
             </Col>
+            <Col md={2}>
+              <img src="https://via.placeholder.com/400" alt="Example" />
+            </Col>
           </Row>
-          <Row className="my-5">
-            <Col ref={ref3}>
+          <Row className="my-2 justify-content-md-center">
+            <Col md={7} ref={ref3}>
+              <Row>
+                <Col>
+                  <motion.div
+                    initial={{ opacity: 0, y: 100 }}
+                    animate={
+                      inView3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }
+                    }
+                    transition={{ duration: 0.5 }}
+                  >
+                    <h3>Catalogue of Baltic Sea dumped munitions' types</h3>
+                  </motion.div>
+                </Col>
+              </Row>
               <motion.div
                 initial={{ opacity: 0, y: 100 }}
                 animate={
                   inView3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }
                 }
-                transition={{ duration: 0.5 }}
+                transition={{delay:1, duration: 0.5 }}
               >
-                <h3>Catalogue of Baltic Sea dumped munitions' types</h3>
                 <p>
                   The Polish Naval Academy in Gdynia, in collaboration with
                   other DAIMON partners, has developed an online catalogue of
@@ -219,11 +274,13 @@ const DaimonPage = () => {
                   information system access, including DAIMON and CHEMSEA
                   results, use the provided link.
                 </p>
-                <img src="https://via.placeholder.com/400" alt="Example" />
               </motion.div>
             </Col>
+            <Col md={2}>
+              <img src="https://via.placeholder.com/400" alt="Example" />
+            </Col>
           </Row>
-        </>
+        </motion.div>
       )}
     </Container>
   );
