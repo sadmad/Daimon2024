@@ -4,6 +4,7 @@ import TopBar from "./components/topbar/TopBar";
 import Blocks from "./components/fist-containers/Twoblock";
 import SecBlocks from "./components/3block/secBlock";
 import DaimonPage from "./pages/daimon/DaimonPage";
+import Footer from "./components/footer/Footer";
 import "./Home.css";
 import Login from "./components/login/Login";
 import { useState, useEffect } from "react";
@@ -45,9 +46,7 @@ const Home = () => {
             <Route path="/DaimonPage" element={<DaimonPage />} />
           </Routes>
         </main>
-        <footer className="pt-3 mt-4 text-muted border-top">
-          &copy; TU Cluasthal 2022
-        </footer>
+        <Footer />
       </Router>
     </>
   );
